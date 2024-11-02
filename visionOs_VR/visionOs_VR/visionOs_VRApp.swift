@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct visionOs_VRApp: App {
-    @State var immersionMode: ImmersionStyle = .full
+    @State var immersionMode: ImmersionStyle = .progressive
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -17,7 +17,9 @@ struct visionOs_VRApp: App {
         .defaultSize(width: 10,height: 10)
         .windowStyle(.plain)
         //VR
-        ImmersiveSpace (id: "ImmersiveView") {}
-            .immersionStyle(selection: $immersionMode, in:.full)
+        ImmersiveSpace (id: "ImmersiveView") {
+            ImmersiveView()
+        }
+            .immersionStyle(selection: $immersionMode, in:.progressive)
     }
 }

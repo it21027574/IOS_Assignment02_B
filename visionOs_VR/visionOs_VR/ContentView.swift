@@ -15,7 +15,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button {
-                //Do something
+                Task{
+                    await openImmersiveSpace(id: "ImmersiveView")
+                }
             } label: {
                 Image(systemName: "visonpro")
             }
